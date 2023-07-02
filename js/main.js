@@ -63,11 +63,18 @@ function buildCards() {
 		productCard.classList.add("products");
 		productCard.innerHTML = `<div class="products" data-id="${product.id}">
 		<div class="product-image">
-		<img src="${product.image}" alt="${product.alt}" />
+			<img src="${product.image}" alt="${product.alt}" />
 		</div>
+		<button class="cta">see product</button>
 		<h2>${product.title}</h2>
 		<h2>${product.regular_price}</h2>
 		</div>`;
+
+		const ctaBtn = productCard.querySelector(".cta");
+		ctaBtn.addEventListener("click", () => {
+			window.open(`/products.html#/${product.id}`, "_self")
+		})
+
 		productGrid.appendChild(productCard);
 	});
 }
