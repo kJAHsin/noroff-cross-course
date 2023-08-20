@@ -33,7 +33,6 @@
 
 /* global styles */
 body {
-	width: 100%;
 	min-height: 100dvh;
 	font-family: "Inter", sans-serif;
 	font-size: 1rem;
@@ -42,7 +41,6 @@ body {
 
 header,
 footer {
-	width: 100%;
 	background-color: var(--clr-bg-primary);
 	padding: 2em;
 }
@@ -203,6 +201,7 @@ a {
 	transition: background 650ms ease-in, color 200ms ease-out 300ms;
 	font-weight: 600;
 	text-transform: capitalize;
+	cursor: pointer;
 }
 
 .cta:hover, cta:focus-visible {

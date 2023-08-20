@@ -2,7 +2,6 @@
 import { loaderHide } from "./loader.js";
 loaderHide();
 
-
 // defining variabels
 const productGrid = document.querySelector(".product-grid");
 const productArr = [];
@@ -46,9 +45,9 @@ function fetchProducts() {
 						.replace("</p>", ""),
 					regular_price: `$${product.prices.regular_price / 100}`,
 					sale_price: `$${product.prices.sale_price / 100}`,
-					featured: (product.categories[0].name === "featured"),
+					featured: product.categories[0].name === "featured",
 				};
-				
+
 				productArr.push(productObj);
 			})
 		)
@@ -58,23 +57,40 @@ function fetchProducts() {
 fetchProducts();
 
 function buildCards() {
-	productArr.forEach(product => {
+	productArr.forEach((product) => {
+		// creating product card
 		const productCard = document.createElement("div");
 		productCard.classList.add("products");
-		productCard.innerHTML = `<div class="products" data-id="${product.id}">
-		<div class="product-image">
-			<img src="${product.image}" alt="${product.alt}" />
-		</div>
-		<button class="cta">see product</button>
-		<h2>${product.title}</h2>
-		<h2>${product.regular_price}</h2>
-		</div>`;
-
-		const ctaBtn = productCard.querySelector(".cta");
-		ctaBtn.addEventListener("click", () => {
-			window.open(`/products.html#/${product.id}`, "_self")
-		})
-
+		productCard.dataset.id = product.id;
 		productGrid.appendChild(productCard);
+		
+		// adding image container
+		const productImgCont = document.createElement("div");
+		productImgCont.classList.add("product-image");
+		productCard.appendChild(productImgCont);
+		
+		// placing image
+		const productImg = document.createElement("img");
+		productImg.src = product.image;
+		productImg.alt = product.alt;
+		productImgCont.appendChild(productImg);
+
+		// adding button
+		const ctaBtn = document.createElement("button");
+		ctaBtn.classList.add("cta");
+		ctaBtn.innerText = "see button";
+		productCard.appendChild(ctaBtn);
+		
+		// adding title and price to card
+		const cardTitle = document.createElement("h2");
+		cardTitle.innerText = product.title;
+		const cardPrice = document.createElement("h2");
+		cardPrice.innerText = product.regular_price;
+		productCard.append(cardTitle, cardPrice);
+		
+		ctaBtn.addEventListener("click", () => {
+			window.open(`/products.html#/${product.id}`, "_self");
+		});
+
 	});
 }

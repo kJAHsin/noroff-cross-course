@@ -6,8 +6,6 @@ loaderHide();
 const productID = window.location.href.slice(-2);
 const productObj = {}
 
-console.log(productID)
-
 const apiURL = `https://wordpress.skinnyk.no/wp-json/wc/store/products/${productID}`;
 
 function fetchProduct_Individ() {
