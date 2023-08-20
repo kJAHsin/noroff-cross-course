@@ -225,14 +225,12 @@ a {
 
 
 
+/* about page */
 
-
-
-
-
-
-
-
+.about-us {
+	max-width: 67ch;
+	text-indent: 5ch;
+}
 
 
 
