@@ -112,15 +112,29 @@ a {
 	gap: 1em;
 }
 
+.featured, .products {
+	border: 3px solid var(--clr-neutral);
+	border-radius: 8px;
+	transition: border 350ms ease-out;
+}
+
 .products {
 	position: relative;
 	overflow: hidden;
-	cursor: pointer;
+}
+
+.featured:hover,
+.featured:focus-within,
+.products:hover, 
+.products:focus-within {
+	border-color: var(--clr-primary);
 }
 
 .product-image {
 	width: 12em;
 	height: 8em;
+	border-radius: 6px;
+	overflow:hidden;
 }
 
 .featured > .cta,
@@ -352,7 +366,7 @@ a {
 /* cta animation on product cards */
 @keyframes ctaFadeIn {
 	to {
-		transform: translateX(-3em);
+		transform: translateX(-4em);
 		opacity: 1;
 	}
 }

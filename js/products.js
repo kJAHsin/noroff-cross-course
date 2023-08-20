@@ -42,7 +42,7 @@ function fillCard() {
         const productDescr = document.createElement("p");
         productDescr.innerText = productObj.description.replace("<p>", "").replace("</p>", "");
         const productPrice = document.createElement("h2");
-        productPrice.innerText = productObj.price;
+        productPrice.innerText = productObj.price + "/kg";
 
         // creating cta button
         const ctaBtn = document.createElement("button");

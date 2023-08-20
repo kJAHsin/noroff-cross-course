@@ -32,7 +32,7 @@ function fetchProducts() {
 					productInfo[0].innerText = product.name;
 					productInfo[1].innerText = `$${
 						product.prices.regular_price / 100
-					}`;
+					}/kg`;
 					const ctaBtn = document.querySelector(".featured > .cta");
 					ctaBtn.addEventListener("click", () => {
 						window.open(`/products.html#/${product.id}`, "_self");
@@ -45,8 +45,8 @@ function fetchProducts() {
 					alt: product.images[0].alt,
 					title: product.name,
 					description: product.short_description
-						.replace("<p>", "")
-						.replace("</p>", ""),
+						.replaceAll("<p>", "")
+						.replaceAll("</p>", ""),
 					regular_price: `$${product.prices.regular_price / 100}`,
 					sale_price: `$${product.prices.sale_price / 100}`,
 					featured: product.categories[0].name === "featured",
@@ -89,7 +89,7 @@ function buildCards() {
 		const cardTitle = document.createElement("h2");
 		cardTitle.innerText = product.title;
 		const cardPrice = document.createElement("h2");
-		cardPrice.innerText = product.regular_price;
+		cardPrice.innerText = product.regular_price + "/kg";
 		productCard.append(cardTitle, cardPrice);
 		
 		ctaBtn.addEventListener("click", () => {
