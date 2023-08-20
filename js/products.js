@@ -32,13 +32,34 @@ fetchProduct_Individ();
 
 function fillCard() {
 	const productContainer = document.querySelector(".container");
-	productContainer.innerHTML = `<div class="product-info [ column ]">
-                                        <h2>${productObj.title}</h2>
-                                        <p>${productObj.description.replace("<p>", "").replace("</p>", "")}</p>
-                                        <h2>${productObj.price}</h2>
-                                        <button class="cta">buy now</button>
-                                    </div>
-                                    <div class="product-image_card">
-                                            <img src="${productObj.img}" alt="${productObj.alt}">
-                                    </div>`;
+        // adding product card
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info", "column");
+
+        // adding title, description and price
+        const productTitle = document.createElement("h2");
+        productTitle.innerText = productObj.title;
+        const productDescr = document.createElement("p");
+        productDescr.innerText = productObj.description.replace("<p>", "").replace("</p>", "");
+        const productPrice = document.createElement("h2");
+        productPrice.innerText = productObj.price;
+
+        // creating cta button
+        const ctaBtn = document.createElement("button");
+        ctaBtn.classList.add("cta")
+        ctaBtn.innerText = "buy now";
+
+        // creating product image card
+        const productImgCont = document.createElement("div");
+        productImgCont.classList.add("product-image_card");
+
+        // adding image
+        const productImg = document.createElement("img");
+        productImg.src = productObj.img;
+        productImg.alt = productObj.alt;
+        productImgCont.appendChild(productImg);
+
+        // adding elements to dom
+        productContainer.append(productInfo, productImgCont);
+        productInfo.append(productTitle, productDescr, productPrice, ctaBtn);
 }
