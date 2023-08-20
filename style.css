@@ -106,7 +106,7 @@ a {
 }
 
 .product-grid {
-	max-width: 40em;
+	max-width: 44em;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1em;
@@ -115,7 +115,8 @@ a {
 .featured, .products {
 	border: 3px solid var(--clr-neutral);
 	border-radius: 8px;
-	transition: border 350ms ease-out;
+	transition: border 480ms ease-out;
+	padding: .5rem;
 }
 
 .products {
@@ -128,6 +129,7 @@ a {
 .products:hover, 
 .products:focus-within {
 	border-color: var(--clr-primary);
+	transition-timing-function: ease-in;
 }
 
 .product-image {
