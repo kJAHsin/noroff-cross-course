@@ -123,6 +123,7 @@ a {
 	height: 8em;
 }
 
+.featured > .cta,
 .products > .cta {
 	position: absolute;
 	right: -2em;
@@ -131,6 +132,7 @@ a {
 	cursor: pointer;
 }
 
+.featured:hover > .cta, .featured:focus-within > .cta,
 .products:hover > .cta, .products:focus-within > .cta {
 	animation: ctaFadeIn 450ms ease-in forwards;
 }
@@ -141,8 +143,6 @@ a {
 	height: 100%;
 	object-position: 10% 35%;
 }
-
-
 
 /* individual product page */
 .individ-product {

@@ -33,6 +33,10 @@ function fetchProducts() {
 					productInfo[1].innerText = `$${
 						product.prices.regular_price / 100
 					}`;
+					const ctaBtn = document.querySelector(".featured > .cta");
+					ctaBtn.addEventListener("click", () => {
+						window.open(`/products.html#/${product.id}`, "_self");
+					})
 				}
 
 				const productObj = {
@@ -51,7 +55,7 @@ function fetchProducts() {
 				productArr.push(productObj);
 			})
 		)
-		.then((data) => buildCards())
+		.then((data) => buildCards(data))
 		.catch((err) => alert(`whoa homey...: ${err}`));
 }
 fetchProducts();
@@ -78,7 +82,7 @@ function buildCards() {
 		// adding button
 		const ctaBtn = document.createElement("button");
 		ctaBtn.classList.add("cta");
-		ctaBtn.innerText = "see button";
+		ctaBtn.innerText = "see product";
 		productCard.appendChild(ctaBtn);
 		
 		// adding title and price to card
